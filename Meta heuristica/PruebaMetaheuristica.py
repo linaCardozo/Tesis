@@ -6,7 +6,7 @@ def pruebaMetaheuristica(n, iteraciones, hormigas):
     resTiempo = []
     resObj = []
     res = ()
-    fileName = "Pruebas/PC8GB/NoParalelismo/Mmm/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
+    fileName = "Pruebas/PC8GB/TempSecuencial/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
     
     with open(fileName, 'w') as f:
         f.write("Tiempos de ejecución y valor de la función objetivo de metaheurística con " + str(n) 
@@ -37,4 +37,5 @@ def pruebaMetaheuristica(n, iteraciones, hormigas):
 
 for i in range(10, 100, 10):
     for j in range(10, 100, 10):
-        pruebaMetaheuristica(1, i, j)
+        if i != 70 and j != 60:
+            pruebaMetaheuristica(50, i, j)
