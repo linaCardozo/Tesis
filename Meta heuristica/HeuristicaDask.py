@@ -84,6 +84,7 @@ def actualizarFeromonas(secuencia, valorsecuencias, feromonas, rho):
 
 
 def heuristica(iteraciones, hormigas):
+    feromonas = []
     #CrearEscenario.crearEscenario(6, 230, 4)
     EscenarioAleatorio.escenarioAleatorio(2, 14, 1, 0.05,0.5, "../")
 
@@ -145,23 +146,23 @@ def heuristica(iteraciones, hormigas):
     valorSecuenciaMax = results[-1][0]
     secuenciaM = results[-1][1]
 
-    ordenesMapa = []
-    ordenesMapa.append(0)
+    # ordenesMapa = []
+    # ordenesMapa.append(0)
     
-    for i in secuenciaM:
-        ordenesMapa.append(i)
-        ordenesMapa.append(i)
-    print(ordenesMapa)
-    CrearMapa.crearMapa(ordenesMapa, "Test" + str(iteraciones) + "I" + str(hormigas) + "H", "Metaheuristica")
+    # for i in secuenciaM:
+    #     ordenesMapa.append(i)
+    #     ordenesMapa.append(i)
+    # # print(ordenesMapa)
+    # CrearMapa.crearMapa(ordenesMapa, "Test" + str(iteraciones) + "I" + str(hormigas) + "H", "Metaheuristica")
 
-    print("La mejor secuencia es")
-    print(secuenciaM)
-    print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(len(habOrde) - 1))
+    # print("La mejor secuencia es")
+    # print(secuenciaM)
+    # print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(len(habOrde) - 1))
 
     timerGeneralFinal = time.time()
     timerGeneral = timerGeneralFinal - timerGeneralInicial
-    print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
-    print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
+    # print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
+    # print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
     
     return (timerGeneral, valorSecuenciaMax)
 
