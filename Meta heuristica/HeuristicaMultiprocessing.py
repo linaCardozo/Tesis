@@ -236,6 +236,4 @@ def heuristica(iteraciones, hormigas):
 
     return (timerGeneral, valorSecuenciaMax)
 
-
-
 # print(heuristica(10,10))
