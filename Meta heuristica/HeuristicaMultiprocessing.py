@@ -216,26 +216,26 @@ def heuristica(iteraciones, hormigas):
 
     p.close()
 
-    ordenesMapa = []
-    ordenesMapa.append(0)
-    for i in secuenciaM:
-        ordenesMapa.append(i)
-        ordenesMapa.append(i)
-    print(ordenesMapa)
-    CrearMapa.crearMapa(ordenesMapa,"Test","Metaheuristica")
+    # ordenesMapa = []
+    # ordenesMapa.append(0)
+    # for i in secuenciaM:
+    #     ordenesMapa.append(i)
+    #     ordenesMapa.append(i)
+    # print(ordenesMapa)
+    # CrearMapa.crearMapa(ordenesMapa,"Test","Metaheuristica")
 
-    print("La mejor secuencia es")
-    print(secuenciaM)
-    print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(
-        len(habOrde) - 1))
+    # print("La mejor secuencia es")
+    # print(secuenciaM)
+    # print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(
+    #     len(habOrde) - 1))
 
     timerGeneralFinal = time.time()
     timerGeneral = timerGeneralFinal - timerGeneralInicial
-    print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
+    # print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
     print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
 
     return (timerGeneral, valorSecuenciaMax)
 
 
 
-# heuristica(60,10)
+heuristica(10,10)
