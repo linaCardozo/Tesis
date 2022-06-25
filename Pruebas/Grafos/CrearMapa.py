@@ -39,10 +39,7 @@ def crearMapa(ordenes, iteracion,modelo):
 
             folium.PolyLine(points,color=colors[col], weight=4, opacity=1).add_to(m)
             points=[]
-
-        
-        
-        
+            
         cont+=1
-    ruta = "../Pruebas/Grafos/"+ modelo + "/Pruebas2022/PCBase/" + iteracion + ".html"
+    ruta = "../Pruebas/Grafos/"+ modelo + "/Pruebas2022/PC8GB/Secuencial/" + iteracion + ".html"
     m.save(ruta)
