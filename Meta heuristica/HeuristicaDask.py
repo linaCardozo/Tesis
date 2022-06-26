@@ -246,4 +246,4 @@ def func(hormigas,tiempoTotal,numDias,numEmpleados,habEmp,tiempoD,feromonas,alph
         
     return [valorSecuenciaMax, secuenciaM]
 
-# print(heuristica(10,10))
+# print(heuristica(60,90))

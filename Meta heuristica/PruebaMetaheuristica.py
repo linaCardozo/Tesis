@@ -5,7 +5,6 @@ def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
     
     resTiempo = []
     resObj = []
-    res = ()
     fileName = "Pruebas/PCBase/Escalabilidad/Secuencial/Ordenes" + str(ordenes) + ".txt"
     
     with open(fileName, 'w') as f:
@@ -34,8 +33,7 @@ def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
         
     f.close()
     
-
-for i in range(70, 280, 10):
+for i in range(10, 280, 10):
     pruebaMetaheuristica(5, 40, 40, i)
 # for i in range(10, 100, 10):
 #     for j in range(10, 100, 10):
