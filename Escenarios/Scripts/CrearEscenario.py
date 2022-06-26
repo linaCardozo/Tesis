@@ -17,8 +17,6 @@ def crearEscenario(numEmpleados, numOrdenes, numDias, costoAns, path):
 
     stageFile = open(path + 'Escenarios/Jsons/Ordenes.json')
     stageData = json.load(stageFile)
-    print (len(stageData))
-
 
     contador = 0
     while numOrdenes > (contador):
