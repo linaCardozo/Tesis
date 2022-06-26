@@ -1,12 +1,11 @@
 import numpy as np
 from HeuristicaSecuencial import heuristica
 
-def pruebaMetaheuristica(n, iteraciones, hormigas):
+def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
     
     resTiempo = []
     resObj = []
-    res = ()
-    fileName = "Pruebas/PC8GB/TempSecuencial/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
+    fileName = "Pruebas/PCBase/Escalabilidad/Secuencial/Ordenes" + str(ordenes) + ".txt"
     
     with open(fileName, 'w') as f:
         f.write("Tiempos de ejecución y valor de la función objetivo de metaheurística con " + str(n) 
@@ -14,7 +13,7 @@ def pruebaMetaheuristica(n, iteraciones, hormigas):
         f.write("\n(Tiempo de ejecución, Valor función objetivo)\n")
         
         for i in range(n):
-            res = heuristica(iteraciones, hormigas)
+            res = heuristica(iteraciones, hormigas, ordenes)
             resTiempo.append(res[0])
             resObj.append(res[1])
             f.write(str(res) + "\n")
@@ -34,8 +33,8 @@ def pruebaMetaheuristica(n, iteraciones, hormigas):
         
     f.close()
     
-
-for i in range(10, 100, 10):
-    for j in range(10, 100, 10):
-        if i != 70 and j != 60:
-            pruebaMetaheuristica(50, i, j)
+for i in range(10, 280, 10):
+    pruebaMetaheuristica(5, 40, 40, i)
+# for i in range(10, 100, 10):
+#     for j in range(10, 100, 10):
+#         pruebaMetaheuristica(1, i, j)
