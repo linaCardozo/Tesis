@@ -2,6 +2,7 @@ import random
 import json
 import copy
 import time
+import os
 
 import numpy
 
@@ -236,4 +237,4 @@ def heuristica(iteraciones, hormigas):
 
     return (timerGeneral, valorSecuenciaMax)
 
-# print(heuristica(10,10))
+# print(heuristica(62,10))

@@ -17,7 +17,7 @@ def crearEscenario(numEmpleados, numOrdenes, numDias, costoAns, path):
 
     stageFile = open(path + 'Escenarios/Jsons/Ordenes.json')
     stageData = json.load(stageFile)
-
+    print (len(stageData))
 
 
     contador = 0
@@ -34,8 +34,6 @@ def crearEscenario(numEmpleados, numOrdenes, numDias, costoAns, path):
                     esta = False
             if esta:
                 habilidades.append(row['Skills'][0])
-
-
 
         #Calcular tiempo
         distanciaA = []
@@ -164,6 +162,5 @@ def crearEscenario(numEmpleados, numOrdenes, numDias, costoAns, path):
         json.dump(data,file)
 
 
-#crearEscenario(6,231,6,0.05)
-
+# crearEscenario(6,231,6,0.05)
 

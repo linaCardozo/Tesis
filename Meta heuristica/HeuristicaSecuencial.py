@@ -76,9 +76,9 @@ def actualizarFeromonas(secuencia, valorsecuencias, feromonas, rho):
     return (numpy.array(deltaFeromonas) + numpy.array(feromonas)) * rho
 
 
-def heuristica(iteraciones, hormigas):
-    #CrearEscenario.crearEscenario(6, 230, 4)
-    EscenarioAleatorio.escenarioAleatorio(2, 14, 1, 0.05,0.5, "../")
+def heuristica(iteraciones, hormigas, ordenes):
+    CrearEscenario.crearEscenario(2, ordenes, 5, 0.05, "../")
+    # EscenarioAleatorio.escenarioAleatorio(2, 14, 1, 0.05,0.5, "../")
 
     # Guardar tiempo inicial
     timerGeneralInicial = time.time()
@@ -232,5 +232,4 @@ def heuristica(iteraciones, hormigas):
     return (timerGeneral, valorSecuenciaMax)
 
 
-
-# print(heuristica(10,15000))
+# print(heuristica(40,40))
