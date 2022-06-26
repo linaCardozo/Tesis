@@ -37,4 +37,5 @@ def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
 #     pruebaMetaheuristica(5, 40, 40, i)
 # for i in range(10, 100, 10):
 for j in range(10, 100, 10):
-    pruebaMetaheuristica(50, j, 60, 14)
+    if j != 60:
+        pruebaMetaheuristica(50, 70, j, 14)
