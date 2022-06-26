@@ -41,5 +41,5 @@ def crearMapa(ordenes, iteracion,modelo):
             points=[]
             
         cont+=1
-    ruta = "../Pruebas/Grafos/"+ modelo + "/Pruebas2022/PC8GB/Secuencial/" + iteracion + ".html"
+    ruta = "../Pruebas/Grafos/"+ modelo + "/Pruebas2022/PC Base/Secuencial/" + iteracion + ".html"
     m.save(ruta)
