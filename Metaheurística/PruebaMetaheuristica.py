@@ -6,7 +6,7 @@ def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
     resTiempo = []
     resObj = []
     # fileName = "Pruebas/PC Base/Escalabilidad/Dask/Ordenes" + str(ordenes) + ".txt"
-    fileName = "Pruebas/PC 8GB/Secuencial/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
+    fileName = "Pruebas/PC 8GB/TempMP/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
     
     with open(fileName, 'w') as f:
         f.write("Tiempos de ejecución y valor de la función objetivo de metaheurística con " + str(n) 
