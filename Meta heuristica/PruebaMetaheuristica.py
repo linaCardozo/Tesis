@@ -1,12 +1,12 @@
 import numpy as np
-from HeuristicaDask import heuristica
+from HeuristicaMultiprocessing import heuristica
 
 def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
     
     resTiempo = []
     resObj = []
     # fileName = "Pruebas/PCBase/Escalabilidad/Dask/Ordenes" + str(ordenes) + ".txt"
-    fileName = "Pruebas/PC8GB/TempSecuencial/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
+    fileName = "Pruebas/PC8GB/TempMP/Metaheuristica" + str(n) + "N" + str(iteraciones) + "I" + str(hormigas) + "H.txt"
     
     with open(fileName, 'w') as f:
         f.write("Tiempos de ejecución y valor de la función objetivo de metaheurística con " + str(n) 
@@ -37,6 +37,6 @@ def pruebaMetaheuristica(n, iteraciones, hormigas, ordenes):
 # for i in range(170, 240, 10):
 #     pruebaMetaheuristica(5, 40, 40, i)
 
-# for i in range(10, 100, 10):
-# for j in range(10, 100, 10):
-#     pruebaMetaheuristica(50, 70, j, 14)
+for i in range(10, 70, 10):
+    for j in range(10, 100, 10):
+        pruebaMetaheuristica(50, i, j, 14)
