@@ -77,8 +77,8 @@ def actualizarFeromonas(secuencia, valorsecuencias, feromonas, rho):
 
 
 def heuristica(iteraciones, hormigas, ordenes):
-    CrearEscenario.crearEscenario(2, ordenes, 5, 0.05, "../")
-    # EscenarioAleatorio.escenarioAleatorio(2, ordenes, 1, 0.05,0.5, "../")
+    # CrearEscenario.crearEscenario(2, ordenes, 5, 0.05, "../")
+    EscenarioAleatorio.escenarioAleatorio(2, ordenes, 1, 0.05,0.5, "../")
 
     # Guardar tiempo inicial
     timerGeneralInicial = time.time()
@@ -211,23 +211,24 @@ def heuristica(iteraciones, hormigas, ordenes):
         #Actualiza feromonas
         feromonas = actualizarFeromonas(secuencias, valorSecuencias, feromonas, rho)
 
-    # ordenesMapa = []
-    # ordenesMapa.append(0)
-    # for i in secuenciaM:
-    #     ordenesMapa.append(i)
-    #     ordenesMapa.append(i)
-    # print(ordenesMapa)
-    # CrearMapa.crearMapa(ordenesMapa, "Test" + str(iteraciones) + "I" + str(hormigas) + "H","Metaheuristica")
-
-    # print("La mejor secuencia es")
-    # print(secuenciaM)
-    # print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(
-    #     len(habOrde) - 1))
-
     timerGeneralFinal = time.time()
     timerGeneral = timerGeneralFinal - timerGeneralInicial
-    # print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
-    # print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
+
+    ordenesMapa = []
+    ordenesMapa.append(0)
+    for i in secuenciaM:
+        ordenesMapa.append(i)
+        ordenesMapa.append(i)
+    print(ordenesMapa)
+    CrearMapa.crearMapa(ordenesMapa, "Test" + str(iteraciones) + "I" + str(hormigas) + "H","Metaheuristica")
+
+    print("La mejor secuencia es")
+    print(secuenciaM)
+    print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(
+        len(habOrde) - 1))
+
+    print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
+    print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
 
     return (timerGeneral, valorSecuenciaMax)
 

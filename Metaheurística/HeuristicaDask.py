@@ -25,7 +25,7 @@ def darProbabilidad(matriz, tiempo, nodoActual, feromonas, alpha, beta, habOrden
     for i in range(len(matriz)):
         if (matriz[nodoActual][i] != 0):
 
-            #Una orden solo puede ser antendida por un empleado con un minimo de habilidades
+            #Una orden solo puede ser antendida por un empleado con un mínimo de habilidades
             if(sum(numpy.array(habOrdenes[i]) * numpy.array(habEmpleados)) >= q * sum(numpy.array(habOrdenes[i]))):
                 vector.append(round(beta / matriz[nodoActual][i] + alpha * feromonas[nodoActual][i], 2))
             else:
@@ -87,7 +87,7 @@ def heuristica(iteraciones, hormigas, ordenes):
     feromonas = []
     
     CrearEscenario.crearEscenario(2, ordenes, 5, 0.05, "../")
-    # EscenarioAleatorio.escenarioAleatorio(2, 14, 1, 0.05,0.5, "../")
+    # EscenarioAleatorio.escenarioAleatorio(2, ordenes, 1, 0.05,0.5, "../")
 
     # Guardar tiempo inicial
     timerGeneralInicial = time.time()
@@ -136,6 +136,8 @@ def heuristica(iteraciones, hormigas, ordenes):
     valorSecuenciaMax= 0
     
     delayed_results = []
+    
+    #Paralelización de la metaheurística
     for j in range(iteraciones):
     
         res = dask.delayed(func)(hormigas,tiempoTotal,numDias,numEmpleados,habEmp,tiempoD,feromonas,alpha,beta,habOrde,
@@ -146,24 +148,25 @@ def heuristica(iteraciones, hormigas, ordenes):
     
     valorSecuenciaMax = results[-1][0]
     secuenciaM = results[-1][1]
-
-    # ordenesMapa = []
-    # ordenesMapa.append(0)
     
-    # for i in secuenciaM:
-    #     ordenesMapa.append(i)
-    #     ordenesMapa.append(i)
-    # # print(ordenesMapa)
-    # CrearMapa.crearMapa(ordenesMapa, "Test" + str(iteraciones) + "I" + str(hormigas) + "H", "Metaheuristica")
-
-    # print("La mejor secuencia es")
-    # print(secuenciaM)
-    # print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(len(habOrde) - 1))
-
     timerGeneralFinal = time.time()
     timerGeneral = timerGeneralFinal - timerGeneralInicial
-    # print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
-    # print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
+
+    ordenesMapa = []
+    ordenesMapa.append(0)
+    
+    for i in secuenciaM:
+        ordenesMapa.append(i)
+        ordenesMapa.append(i)
+    # print(ordenesMapa)
+    CrearMapa.crearMapa(ordenesMapa, "Test" + str(iteraciones) + "I" + str(hormigas) + "H", "Metaheuristica")
+
+    print("La mejor secuencia es")
+    print(secuenciaM)
+    print("Se pudieron atender " + str(len(secuenciaM) - (numDias * numEmpleados)) + " ordenes de " + str(len(habOrde) - 1))
+
+    print("La función objetivo tiene un valor de: " + str(valorSecuenciaMax))
+    print("Tiempo de ejecución total: " + str(round(timerGeneral, 2)) + " segundos")
     
     return (timerGeneral, valorSecuenciaMax)
 
@@ -247,4 +250,4 @@ def func(hormigas,tiempoTotal,numDias,numEmpleados,habEmp,tiempoD,feromonas,alph
         
     return [valorSecuenciaMax, secuenciaM]
 
-# print(heuristica(60,90))
+# print(heuristica(10,10))
